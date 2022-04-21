@@ -74,7 +74,7 @@ func main() {
 	var sender string
 	var subject string
 
-	for i := 0; message[i] != ""; i++ {
+	for i := 0; message[i] != "" && i < len(message); i++ {
 		// Check if this is the from header
 		if strings.ToLower(message[i][:5]) == "from:" {
 			sender = strings.TrimSpace(message[i][5:])
