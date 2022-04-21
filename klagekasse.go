@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"encoding/base64"
-	"fmt"
 	"net/smtp"
 	"os"
 	"strings"
@@ -54,37 +52,6 @@ func main() {
 	// Get arguments
 	from := os.Args[1]
 
-	// Get the message from stdin
-	message := make([]string, 0)
-	scanner := bufio.NewScanner(os.Stdin)
-	for {
-		// Scans a line from Stdin(Console)
-		scanner.Scan()
-		// Holds the string that scanned
-		text := scanner.Text()
-		if len(text) != 0 {
-			fmt.Println(text)
-			message = append(message, text)
-		} else {
-			break
-		}
-	}
-
-	// Get the subject and sender format name from headers
-	var sender string
-	var subject string
-
-	for i := 0; i < len(message) && message[i] != ""; i++ {
-		// Check if this is the from header
-		if strings.ToLower(message[i][:5]) == "from:" {
-			sender = strings.TrimSpace(message[i][5:])
-
-			// Check if this is the subject header
-		} else if strings.ToLower(message[i][:8]) == "subject:" {
-			subject = strings.TrimSpace(message[i][8:])
-		}
-	}
-
 	// Send an acknowledgement email
 	response := "Your complaint has been received"
 	smtpServer := "localhost:25"
@@ -93,5 +60,5 @@ func main() {
 		from,
 	}
 
-	SendMail(smtpServer, replyFrom, response, response+sender+subject, to)
+	SendMail(smtpServer, replyFrom, response, response, to)
 }
