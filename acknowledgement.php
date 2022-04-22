@@ -9,7 +9,7 @@
         </p>
 
         <p>
-            Your case has been assigned case ID <strong>IDXXXXX</strong>.<br>
+            Your case has been assigned case ID <strong><?php $argv[1]; ?></strong>.<br>
             Please refer to this ID for all further communication.<br>
             We will get back to you within five business days.
         </p>
