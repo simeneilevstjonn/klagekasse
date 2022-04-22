@@ -6,20 +6,21 @@ import (
 	"log"
 	"math"
 	"math/rand"
-	"os"
 	"os/exec"
+	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
 	// Get arguments
-	from := os.Args[1]
+	//from := os.Args[1]
 
 	// Create a random inquiry ID
 	idLen := 7
 	maxId := math.Pow(10, float64(idLen))
-	id := rand.Intn(int(maxId))
-	strId := string(id)
+	id := rand.New(rand.NewSource(time.Now().UnixNano())).Intn(int(maxId))
+	strId := strconv.Itoa(id)
 
 	// Expand with leading zeroes if not long enough
 	if len(strId) < idLen {
@@ -30,6 +31,10 @@ func main() {
 	if len(strId) > idLen {
 		strId = strId[:idLen]
 	}
+
+	fmt.Println(strId)
+	return
+	from := ""
 
 	// Send an acknowledgement email
 	subject := fmt.Sprintf("[%s] Your inquiry has been received", strId)
