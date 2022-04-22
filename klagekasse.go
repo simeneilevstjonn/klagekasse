@@ -6,6 +6,7 @@ import (
 	"log"
 	"math"
 	"math/rand"
+	"os"
 	"os/exec"
 	"strconv"
 	"strings"
@@ -14,7 +15,7 @@ import (
 
 func main() {
 	// Get arguments
-	//from := os.Args[1]
+	from := os.Args[1]
 
 	// Create a random inquiry ID
 	idLen := 7
@@ -31,10 +32,6 @@ func main() {
 	if len(strId) > idLen {
 		strId = strId[:idLen]
 	}
-
-	fmt.Println(strId)
-	return
-	from := ""
 
 	// Send an acknowledgement email
 	subject := fmt.Sprintf("[%s] Your inquiry has been received", strId)
