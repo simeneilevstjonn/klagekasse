@@ -20,14 +20,7 @@ func main() {
 	}
 
 	// Get the acknowledgement email from the PHP file
-	// Find the working directory
-	path, err := os.Getwd()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Run the PHP
-	response, err := exec.Command("php", path+"/acknowledgement.php").Output()
+	response, err := exec.Command("php", "/usr/lib/klagekasse/acknowledgement.php").Output()
 	if err != nil {
 		log.Fatal(err)
 	}
