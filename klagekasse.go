@@ -20,7 +20,7 @@ func main() {
 	}
 
 	// Get the acknowledgement email from the PHP file
-	response, err := exec.Command("php acknowledgement.php").Output()
+	response, err := exec.Command("php", "acknowledgement.php").Output()
 	if err != nil {
 		log.Fatal(err)
 	}
