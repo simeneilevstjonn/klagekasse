@@ -1,8 +1,3 @@
-To: &lt;<?php echo $argv[2]; ?>&gt;
-From: &lt;noreply@trok.no&gt;
-Subject: <?php echo $argv[3]; ?>
-Content-type: text/html
-
 <!doctype HTML>
 <html>
     <head>
