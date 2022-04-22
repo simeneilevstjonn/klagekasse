@@ -38,7 +38,7 @@ func main() {
 	// Send an acknowledgement email
 	subject := fmt.Sprintf("[%s] Your inquiry has been received", strId)
 	smtpServer := "localhost:25"
-	replyFrom := "noreply@trok.no"
+	replyFrom := "noreply@example.com"
 	to := []string{
 		from,
 	}

@@ -1,5 +1,5 @@
 To: <?php echo $argv[2] . "\r\n"; ?>
-From: noreply@trok.no <?php echo "\r\n";?>
+From: noreply@example.com <?php echo "\r\n";?>
 Subject: <?php echo $argv[3] . "\r\n"; ?>
 Content-type: text/html
 
