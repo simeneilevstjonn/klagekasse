@@ -2,7 +2,9 @@ package main
 
 import (
 	helpers "github.com/gadelkareem/go-helpers"
+	"log"
 	"os"
+	"os/exec"
 )
 
 func main() {
@@ -10,12 +12,18 @@ func main() {
 	from := os.Args[1]
 
 	// Send an acknowledgement email
-	response := "Your complaint has been received"
+	subject := "Your complaint has been received"
 	smtpServer := "localhost:25"
 	replyFrom := "noreply@trok.no"
 	to := []string{
 		from,
 	}
 
-	helpers.SendMail(smtpServer, replyFrom, response, response, to)
+	// Get the acknowledgement email from the PHP file
+	response, err := exec.Command("php acknowledgement.php").Output()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	helpers.SendMail(smtpServer, replyFrom, subject, string(response), to)
 }
