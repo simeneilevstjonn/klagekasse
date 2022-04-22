@@ -55,8 +55,8 @@ func main() {
 	}
 
 	// Get the time to rejection email
-	minTime := 1
-	maxTime := 5
+	minTime := 1440
+	maxTime := 7200
 	replyTime := 0
 
 	for replyTime < minTime {
