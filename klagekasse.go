@@ -35,7 +35,7 @@ func main() {
 	}
 
 	// Get the acknowledgement email from the PHP file
-	response, err := exec.Command("php", "/usr/lib/klagekasse/acknowledgement.php").Output()
+	response, err := exec.Command("php", "/usr/lib/klagekasse/acknowledgement.php "+strId).Output()
 	if err != nil {
 		log.Fatal(err)
 	}
