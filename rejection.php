@@ -1,6 +1,6 @@
-To: &lt;<?php echo $argv[2]; ?>&gt;
-From: &lt;noreply@trok.no&gt;
-Subject: <?php echo $argv[3]; ?>
+To: <?php echo $argv[2] . "\r\n"; ?>
+From: noreply@trok.no <?php echo "\r\n";?>
+Subject: <?php echo $argv[3] . "\r\n"; ?>
 Content-type: text/html
 
 <!doctype HTML>

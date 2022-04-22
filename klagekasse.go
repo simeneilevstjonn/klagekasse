@@ -70,16 +70,11 @@ func main() {
 		log.Fatal(err)
 	}
 
-	go func() {
-		defer func(stdin io.WriteCloser) {
-			err := stdin.Close()
-			if err != nil {
-				log.Fatal(err)
-			}
-		}(stdin)
-		_, err := io.WriteString(stdin, fmt.Sprintf("php /usr/lib/klagekasse/rejection.php %s %s \"[%s] Your inquiry has been closed\" | sendmail %s", strId, from, strId, from))
-		if err != nil {
-			log.Fatal(err)
-		}
-	}()
+	_, err = io.WriteString(stdin, fmt.Sprintf("php /usr/lib/klagekasse/rejection.php %s %s \"[%s] Your inquiry has been closed\" | /usr/sbin/sendmail %s", strId, from, strId, from))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	cmd.Start()
+
 }
