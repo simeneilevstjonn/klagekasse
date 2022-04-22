@@ -28,7 +28,7 @@ func main() {
 
 	// Retract if too long
 	if len(strId) > idLen {
-		strId = strId[:7]
+		strId = strId[:idLen]
 	}
 
 	// Send an acknowledgement email
