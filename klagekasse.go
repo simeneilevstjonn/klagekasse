@@ -19,11 +19,16 @@ func main() {
 	idLen := 7
 	maxId := math.Pow(10, float64(idLen))
 	id := rand.Intn(int(maxId))
-	strId := string(id)[:idLen]
+	strId := string(id)
 
 	// Expand with leading zeroes if not long enough
 	if len(strId) < idLen {
 		strId = strings.Repeat("0", idLen-len(strId)) + strId
+	}
+
+	// Retract if too long
+	if len(strId) > idLen {
+		strId = strId[:7]
 	}
 
 	// Send an acknowledgement email
