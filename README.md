@@ -68,7 +68,7 @@ etof  unix  -       n       n       -       10      pipe
   flags=Rq user=klagekasse null_sender=
   argv=/usr/lib/klagekasse/klagekasse ${sender}
 ```
-- Next you need to create a transport map. You could map a single address or a wildcard to the transport. Create `/etc/posstfix/transport` with the following line for a basic setup, replacing the address with your desired address.
+- Next you need to create a transport map. You could map a single address or a wildcard to the transport. Create `/etc/postfix/transport` with the following line for a basic setup, replacing the address with your desired address.
 ```
 inquiries@example.com etof:
 ```
